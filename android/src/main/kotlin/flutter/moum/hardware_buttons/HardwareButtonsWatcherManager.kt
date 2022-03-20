@@ -111,7 +111,7 @@ class HardwareButtonsWatcherManager {
             mHomeButtonWatcher = HomeButtonWatcher {
                 dispatchHomeButtonEvent()
             }
-            val intentFilter = IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
+            val intentFilter = IntentFilter(Intent.ACTION_CAMERA_BUTTON)
             application.registerReceiver(mHomeButtonWatcher, intentFilter)
         }
     }
