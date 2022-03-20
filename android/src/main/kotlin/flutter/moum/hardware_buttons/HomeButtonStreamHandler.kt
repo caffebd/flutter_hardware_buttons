@@ -10,6 +10,7 @@ class HomeButtonStreamHandler(private val application: Application) : EventChann
     private val mHomeButtonListener = object : HardwareButtonsWatcherManager.HomeButtonListener {
         override fun onHomeButtonEvent() {
             mStreamSink?.success(0)
+            Toast.makeText(getApplicationContext(), "Home Button is Pressed", Toast.LENGTH_SHORT).show();           
         }
     }
 
