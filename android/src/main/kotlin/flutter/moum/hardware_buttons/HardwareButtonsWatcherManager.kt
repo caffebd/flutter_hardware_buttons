@@ -195,7 +195,7 @@ private class HomeButtonWatcher(private val callback: () -> Unit) : BroadcastRec
 
     override fun onReceive(context: Context?, intent: Intent?) {
         val intent = intent ?: return
-        if (intent.action == Intent.ACTION_CLOSE_SYSTEM_DIALOGS) {
+        if (intent.action == Intent.ACTION_CAMERA_BUTTON) {
             if (intent.getStringExtra(KEY_REASON) == REASON_HOME_KEY) {
                 callback()
             }
