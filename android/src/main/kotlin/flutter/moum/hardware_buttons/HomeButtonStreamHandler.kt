@@ -10,14 +10,17 @@ class HomeButtonStreamHandler(private val application: Application) : EventChann
 
     private val mHomeButtonListener = object : HardwareButtonsWatcherManager.HomeButtonListener {
         override fun onHomeButtonEvent() {
-            
             Log.d("TAG", "CLOSED")
+            mStreamSink?.success(0)
+            
             Toast.makeText(getApplicationContext(), "Home Button is Pressed", Toast.LENGTH_SHORT).show();           
         }
     }
 
     override fun onListen(args: Any?, sink: EventChannel.EventSink?) {
         this.mStreamSink = sink
+        Log.d("TAG", "LISTEN")
+        Toast.makeText(getApplicationContext(), "Home Button is Listen", Toast.LENGTH_SHORT).show();
         HardwareButtonsWatcherManager.getInstance(application).addHomeButtonListener(mHomeButtonListener)
     }
 
