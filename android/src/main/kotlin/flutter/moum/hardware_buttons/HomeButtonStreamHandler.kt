@@ -1,6 +1,7 @@
 package flutter.moum.hardware_buttons
 
 import android.app.Application
+import android.util.Log
 import io.flutter.plugin.common.EventChannel
 
 class HomeButtonStreamHandler(private val application: Application) : EventChannel.StreamHandler {
@@ -10,6 +11,7 @@ class HomeButtonStreamHandler(private val application: Application) : EventChann
     private val mHomeButtonListener = object : HardwareButtonsWatcherManager.HomeButtonListener {
         override fun onHomeButtonEvent() {
             mStreamSink?.success(0)
+            Log.d("TAG", "CLOSED")
             Toast.makeText(getApplicationContext(), "Home Button is Pressed", Toast.LENGTH_SHORT).show();           
         }
     }
